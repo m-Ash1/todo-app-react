@@ -1,10 +1,25 @@
+/* eslint-disable react/prop-types */
 import { useState } from "react";
 import Btn from "./Btn";
 
-const Input = () => {
+const Input = ({ todolist, onAdd }) => {
   const [userInput, setUserInput] = useState("");
+  const handleInput = (e) => {
+    e.preventDefault();
+    userInput !== ""
+      ? onAdd([
+          ...todolist,
+          {
+            id: (Math.random() * 100000).toFixed(),
+            title: userInput,
+            completed: false,
+          },
+        ])
+      : null;
+    setUserInput("");
+  };
   return (
-    <div className="input">
+    <form className="input" onSubmit={handleInput}>
       <input
         type="text"
         placeholder="Write your task..."
@@ -12,7 +27,7 @@ const Input = () => {
         onChange={(e) => setUserInput(e.target.value)}
       />
       <Btn name="add" />
-    </div>
+    </form>
   );
 };
 
