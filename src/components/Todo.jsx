@@ -23,8 +23,7 @@ const Todo = ({ todolist, setTodoList, originalList, setOriginalList }) => {
     );
   };
   useEffect(() => {
-    localStorage.setItem("list", JSON.stringify(todolist));
-    
+    localStorage.setItem("list", JSON.stringify(todolist)); 
   }, [todolist]);
 
   return (

@@ -20,8 +20,10 @@ const Filters = ({ todolist, setTodoList, originalList, setOriginalList }) => {
   };
 
   const handleClearAll = () => {
-    setTodoList([]);
-    setOriginalList([]);
+    if (confirm("Are you sure you want to delete all tasks?")) {
+      setTodoList([]);
+      setOriginalList([]);
+    }
   };
 
   return (
