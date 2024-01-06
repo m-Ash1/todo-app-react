@@ -2,20 +2,24 @@
 import { useState } from "react";
 import Btn from "./Btn";
 
-const Input = ({ todolist, onAdd }) => {
+const Input = ({ todolist, onAdd, onAddOriginal }) => {
   const [userInput, setUserInput] = useState("");
   const handleInput = (e) => {
     e.preventDefault();
-    userInput !== ""
-      ? onAdd([
-          ...todolist,
-          {
-            id: (Math.random() * 100000).toFixed(),
-            title: userInput,
-            completed: false,
-          },
-        ])
-      : null;
+    const newInput = [
+      ...todolist,
+      {
+        id: (Math.random() * 100000).toFixed(),
+        title: userInput,
+        completed: false,
+      },
+    ];
+    if (userInput !== "") {
+      onAdd(newInput);
+      onAddOriginal(newInput);
+    } else {
+      null;
+    }
     setUserInput("");
   };
   return (
