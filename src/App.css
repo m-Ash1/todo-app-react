@@ -42,7 +42,7 @@ body {
 /* width */
 div.todo-list::-webkit-scrollbar {
   width: 5px;
-  padding: 5px 0 ;
+  padding: 5px 0;
 }
 
 /* Track */
@@ -171,6 +171,9 @@ button.clear-all {
 }
 /* Media Quries */
 @media (max-width: 768px) {
+  ul li {
+    padding: 10px 10px 10px 0px;
+  }
   .todo {
     width: calc(100% - 50px);
     padding: 40px 30px;
@@ -190,12 +193,15 @@ button.clear-all {
 
 @media (max-width: 430px) {
   .todo {
-    margin-top: 25px;
+    margin: 100px 0;
     width: calc(100% - 25px);
     padding: 25px 25px;
   }
   ul {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+  ul li {
+    padding: 10px 10px 10px 0px;
   }
   .filters-wrapper {
     display: flex;
